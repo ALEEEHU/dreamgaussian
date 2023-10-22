@@ -28,8 +28,8 @@ class Zero123(nn.Module):
 
         self.pipe = Zero123Pipeline.from_pretrained(            
             # "bennyguo/zero123-diffusers",
-            "bennyguo/zero123-xl-diffusers",
-            # './model_cache/zero123_xl',
+            # "bennyguo/zero123-xl-diffusers",
+            './model_cache/zero123_xl',
             variant="fp16_ema" if self.fp16 else None,
             torch_dtype=self.dtype,
         ).to(self.device)
