@@ -30,7 +30,7 @@ class StableDiffusion(nn.Module):
         device,
         fp16=True,
         vram_O=False,
-        sd_version="2.1",
+        sd_version="2.0",
         hf_key=None,
         t_range=[0.02, 0.98],
     ):
@@ -45,7 +45,7 @@ class StableDiffusion(nn.Module):
         elif self.sd_version == "2.1":
             model_key = "stabilityai/stable-diffusion-2-1-base"
         elif self.sd_version == "2.0":
-            model_key = "stabilityai/stable-diffusion-2-base"
+            model_key = './model_cache/stable-diffusion-2-base' #"stabilityai/stable-diffusion-2-base"
         elif self.sd_version == "1.5":
             model_key = "runwayml/stable-diffusion-v1-5"
         else:
@@ -301,10 +301,10 @@ if __name__ == "__main__":
     parser.add_argument(
         "--sd_version",
         type=str,
-        default="2.1",
+        default="2.0",
         choices=["1.5", "2.0", "2.1"],
         help="stable diffusion version",
-    )
+    ) # original 2.1
     parser.add_argument(
         "--hf_key",
         type=str,
